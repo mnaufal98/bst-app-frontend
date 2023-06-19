@@ -5,6 +5,7 @@ import Login from "./Pages/Login/Login";
 import Profile from "./Pages/Profile/Profile";
 import Home from "./Pages/Home/Home";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import Activation from "./Pages/Activation/Activation";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<><Profile /></>}/>
+        <Route path="/profile" element={<><Profile /></>} />
+        <Route path="/activation" element={<><Activation /></>} />
       </Routes>
     </>
   );

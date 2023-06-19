@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, styled } from "@mui/system";
 import Modal from "@mui/base/Modal";
 
+
 export default function Navbar() {
   const [openUser, setOpenUser] = useState(true);
   const [openMore, setOpenMore] = useState(true);
@@ -183,7 +184,7 @@ export default function Navbar() {
                           className="bg-gray-300 hover:bg-red-200 text-white font-bold py-2 px-4 rounded-full"
                           onClick={() => setShowModal(!showModal)}
                         >
-                          Nope
+                          Cancel
                         </button>
                         <button onClick={onLogout} className="bg-gray-300 hover:bg-red-200 text-white font-bold py-2 px-4 rounded-full">
                           Yes !

@@ -13,13 +13,14 @@ import { getUserLogin } from "../../Redux/Features/userSlice";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import urlAPI from "../../Support/Constant/urlAPI";
-import { getUserPost } from "../../Redux/Features/postSlice";
+import { getAllPost, getUserPost } from "../../Redux/Features/postSlice";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 
 export default function Profile() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
   const [open, setOpen] = useState(false);
 
   const _bio = useRef();
@@ -28,7 +29,6 @@ export default function Profile() {
   const _image = useRef()
 
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
-  const user = useSelector((state) => state.user.user);
 
   const StyledModal = styled(Modal)`
     position: fixed;
@@ -68,6 +68,8 @@ export default function Profile() {
         toast.success(result.data.message);
       }
       dispatch(getUserLogin())
+      dispatch(getUserPost())
+      setOpen(!open)
     } catch (error) {
       if (error.response) {
         toast.error(error.response.data.message);
@@ -76,10 +78,10 @@ export default function Profile() {
       }
     }
   }
-
+ 
   useEffect(() => {
     dispatch(getUserLogin());
-  }, [user]);
+  }, []);
 
   return (
     <>

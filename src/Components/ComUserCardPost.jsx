@@ -1,10 +1,6 @@
 import {
   Avatar,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
+  Card
 } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -29,15 +25,15 @@ export default function ComUserCardPost() {
           <div className="m-2">
             <Card>
               <div className="flex gap-2 m-2 items-center bg-gray-100 border-full">
-                <Avatar />
-                <div>{value.User.userName} ,</div>
+                <Avatar src={`${urlAPI}/image/${value.User.profileImage}`} />
+                <div>{value.User.userName},</div>
                         <div className="text-auto">{[new Date(value.updatedAt).toString().split("GMT+0700 (Western Indonesia Time)")] }</div>
               </div>
               <div className="grid grid-cols-7 grid-row-2 md:grid-cols-12 md:grid-row-1 items-center">
                 <img
                   alt=""
                   src={`${urlAPI}/image/${value.postImage}`}
-                  class="col-span-6"
+                  className="col-span-6 h-full w-full"
                 />
                 <div class="col-span-1 row-span-2 md:row-span-1 h-full flex flex-col justify-between items-center py-3 border border-slate-200">
                   <button>
